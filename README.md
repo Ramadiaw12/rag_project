@@ -1,8 +1,3 @@
-Guide pour créer un excellent README pour votre projet RAG OCP
-Je vais vous aider à créer un README professionnel et complet pour votre projet d'analyse des rapports financiers de l'OCP avec RAG.
-
-Structure recommandée du README
-markdown
 # 📊 RAG OCP Financial Reports - Analyse des rapports financiers 2023
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
