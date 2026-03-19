@@ -90,7 +90,21 @@ Ce projet implémente un système de **Question-Réponse basé sur RAG (Retrieva
 markdown
 ## 🏗️ Architecture du système
 ┌─────────────────────────────────────┐
-│ Documents PDF (OCP) │
+│ Documents PDF (OCP) │graph TD
+    A[Documents PDF (OCP)] --> B[PyPDFDirectoryLoader<br/>Chargement des documents]
+    B --> C[RecursiveCharacterTextSplitter<br/>Chunks: 300 tokens, overlap 20]
+    C --> D[OpenAIEmbeddings (ada-002)<br/>Vectorisation des textes]
+    D --> E[ChromaDB Vector Store<br/>Collection: rapport_ocp_V2]
+    E --> F[PIPELINE RAG]
+    F --> G[Question → Retrieveur (k=5) → Contexte → Prompt → LLM → Réponse]
+    G --> H[Groundness Checker (GPT-4o)<br/>Évaluation de la fidélité]    graph TD
+        A[Documents PDF (OCP)] --> B[PyPDFDirectoryLoader<br/>Chargement des documents]
+        B --> C[RecursiveCharacterTextSplitter<br/>Chunks: 300 tokens, overlap 20]
+        C --> D[OpenAIEmbeddings (ada-002)<br/>Vectorisation des textes]
+        D --> E[ChromaDB Vector Store<br/>Collection: rapport_ocp_V2]
+        E --> F[PIPELINE RAG]
+        F --> G[Question → Retrieveur (k=5) → Contexte → Prompt → LLM → Réponse]
+        G --> H[Groundness Checker (GPT-4o)<br/>Évaluation de la fidélité]
 └────────────────┬────────────────────┘
 ↓
 ┌─────────────────────────────────────┐

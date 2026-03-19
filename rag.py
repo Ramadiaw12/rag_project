@@ -528,12 +528,10 @@ with ctx_col:
 
     st.markdown('<hr class="rag-divider">', unsafe_allow_html=True)
     st.markdown("#### ℹ️ How it works")
-    st.markdown(
-        """<div class="rag-card" style="font-size:.85rem;line-height:1.75;">
+    st.markdown
+    """<div class="rag-card" style="font-size:.85rem;line-height:1.75;">
 <strong style="color:#818CF8;">1. 📄 Upload</strong> — Load one or more PDF documents.<br><br>
 <strong style="color:#818CF8;">2. ⚡ Index</strong> — Text is extracted, split into overlapping chunks and stored as vector embeddings (OpenAI + Chroma).<br><br>
 <strong style="color:#818CF8;">3. 💬 Ask</strong> — Your question is embedded; the top-<em>k</em> most similar chunks are retrieved.<br><br>
 <strong style="color:#818CF8;">4. 🧠 Generate</strong> — GPT-4o uses <em>only</em> those chunks to produce a grounded answer.
-</div>""",
-        unsafe_allow_html=True,
-    )
+</div>"""
