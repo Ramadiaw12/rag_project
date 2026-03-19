@@ -40,12 +40,12 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 ## 📸 Aperçu
 
 <div align="center">
-
+###  SIDEBAR — chargement PDF
 <!-- SIDEBAR — chargement PDF -->
 ![image alt](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
+### CHAT — réponse contextuelle
 <!-- CHAT — réponse contextuelle -->
-<img src="" width="30%" alt="Chat — réponse ancrée dans les sources"/>
-&nbsp;
+![image alt](https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png)
 <!-- 🖼️ CONTEXTE — chunks retrouvés -->
 <img src="assets/screenshot_context.png" width="30%" alt="Panneau contexte — chunks sources"/>
 
