@@ -168,19 +168,19 @@ TOP_K_RESULTS=5
 Structure des dossiers
 text
 rag-ocp-financial/
+├── .env                        # Variables d'environnement
 ├── 📁 pdfs/                    # Dossier contenant les rapports PDF
 │   └── Rapport Financier Annuel OCP 2023.pdf
 ├── 📁 store/                   # Base vectorielle Chroma (générée)
-├── 📁 notebooks/               # Notebooks Jupyter d'exemple
-├── 📁 src/                     # Code source
-│   ├── rag_pipeline.py
-│   ├── evaluation.py
-│   └── utils.py
-├── 📁 tests/                    # Tests unitaires
-├── .env                         # Variables d'environnement
-├── .env.example                 # Exemple de configuration
-├── .gitignore                   
-├── README.md                    
+├── .env
+├── .gitignore 
+├── .python-version
+├── main.py
+├── pyproject.toml
+├── rag.png    
+├── 📁 rag.py                    # code source du dashboard 
+├── 📁 RAGV2.ipnb                    # Code source du projet
+├── README.md                                           
 └── requirements.txt             
 text
 
