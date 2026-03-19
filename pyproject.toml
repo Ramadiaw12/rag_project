@@ -1,0 +1,28 @@
+[project]
+name = "rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.5.5",
+    "dotenv>=0.9.9",
+    "ipykernel>=7.2.0",
+    "ipynb>=0.5.1",
+    "langchain>=1.2.12",
+    "langchain-community>=0.4.1",
+    "langchain-huggingface>=1.2.1",
+    "langchain-openai>=1.1.11",
+    "langchain-text-splitters>=1.1.1",
+    "nltk>=3.9.3",
+    "pandas>=2.3.3",
+    "plotly>=6.6.0",
+    "pypdf>=6.8.0",
+    "pypdf2>=3.0.1",
+    "python-dotenv>=1.2.2",
+    "sentence-transformers>=5.3.0",
+    "streamlit>=1.55.0",
+    "streamlit-extras>=0.7.8",
+    "streamlit-option-menu>=0.4.0",
+    "tiktoken>=0.12.0",
+]
