@@ -40,11 +40,15 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 ## 📸 Aperçu
 
 <div align="center">
-    
+
+### 📄 Chargement intelligent de documents PDF
+> Interface permettant d’importer et traiter des fichiers pour le système RAG    
 <!-- SIDEBAR — chargement PDF -->
     
 ![image alt](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
-    
+
+### 💬 Chat avec réponse contextuelle
+> Génération de réponses basées sur le contenu des documents analysés
 <!-- CHAT — réponse contextuelle -->
 ![image alt](https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png)
 <!-- 🖼️ CONTEXTE — chunks retrouvés -->
@@ -52,7 +56,9 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 </div>
 
 <div align="center">
-
+### 📊 Vue globale du dashboard
+> Visualisation complète du pipeline RAG et des interactions utilisateur
+    
 <!-- 🖼️ DASHBOARD COMPLET — vue globale -->
 ![image alt](https://github.com/Ramadiaw12/rag_project/blob/19958e8c57a6c52010a03af7ec6af2221b6ff10b/Capture%20d%E2%80%99%C3%A9cran%20du%202026-03-19%2014-30-15.png)
 </div>
