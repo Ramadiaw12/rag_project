@@ -612,3 +612,9 @@ Structuré avec des sections claires
 Professionnel avec des badges et du formatage
 
 Pratique avec des exemples utilisables directement
+
+```mermaid
+graph TD
+    A[Start] --> B[Load Data]
+    B --> C[Process]
+    C --> D[Output]
