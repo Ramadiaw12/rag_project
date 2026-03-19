@@ -1,0 +1,63 @@
+graph TB
+    subgraph "📚 Input Layer"
+        A["📄 Documents<br/>PDF, TXT, etc."]
+        B["🗣️ User Query"]
+    end
+
+    subgraph "🔄 Data Processing"
+        C["📖 Document Loader"]
+        D["✂️ Text Chunking"]
+        E["🧮 Embeddings<br/>Vectorization"]
+    end
+
+    subgraph "💾 Storage & Retrieval"
+        F[("🗄️ Vector Database<br/>ChromaDB/Pinecone")]
+        G["🔍 Retriever<br/>Semantic Search"]
+    end
+
+    subgraph "🤖 Augmentation & Generation"
+        H["📚 Context Preparation<br/>Top-K Results"]
+        I["🔗 Prompt Builder<br/>Context + Query"]
+        J["🧠 LLM Model<br/>GPT/Llama/Claude"]
+    end
+
+    subgraph "📤 Output Layer"
+        K["💬 Generated Response"]
+        L["📊 Confidence Score"]
+    end
+
+    subgraph "🔄 Feedback Loop"
+        M["👤 User Feedback"]
+        N["📈 Model Tuning"]
+    end
+
+    A -->|Parse & Extract| C
+    B -->|Encode| E
+    C --> D
+    D --> E
+    E -->|Store Vectors| F
+    B -->|Search Similar| G
+    F -->|Retrieve| G
+    G -->|Top-K Results| H
+    H --> I
+    I --> J
+    J -->|Generate| K
+    J -->|Calculate| L
+    K --> M
+    M -->|Improve| N
+    N -.->|Refine| J
+
+    style A fill:#e1f5ff
+    style B fill:#e1f5ff
+    style C fill:#fff9c4
+    style D fill:#fff9c4
+    style E fill:#fff9c4
+    style F fill:#c8e6c9
+    style G fill:#c8e6c9
+    style H fill:#ffe0b2
+    style I fill:#ffe0b2
+    style J fill:#f8bbd0
+    style K fill:#d1c4e9
+    style L fill:#d1c4e9
+    style M fill:#ffccbc
+    style N fill:#ffccbc
