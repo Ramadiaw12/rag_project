@@ -42,7 +42,7 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 <div align="center">
 
 <!-- SIDEBAR — chargement PDF -->
-![image alt] (https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
+![image alt](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
 <!-- CHAT — réponse contextuelle -->
 <img src="" width="30%" alt="Chat — réponse ancrée dans les sources"/>
 &nbsp;
