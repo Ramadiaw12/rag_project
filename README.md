@@ -73,13 +73,12 @@ markdown
 Ce projet implémente un système de **Question-Réponse basé sur RAG (Retrieval Augmented Generation)** pour l'analyse des rapports financiers de l'OCP (Office Chérifien des Phosphates) pour l'année 2023.
 
 ### Objectifs
-- 📈 Permettre l'interrogation en langage naturel des rapports financiers
+- 📈 Permettre l'interrogation en langage naturel 
 - 🔍 Extraire des informations précises à partir de documents PDF
 - 🤖 Générer des réponses contextualisées et fidèles aux documents sources
 - ✅ Évaluer automatiquement la qualité des réponses (groundness)
 
-### Problématique résolue
-Les rapports financiers annuels sont des documents denses et complexes (souvent 200+ pages). Notre système permet aux analystes, investisseurs et équipes financières d'obtenir rapidement des réponses précises sans lecture exhaustive.
+
 
 ### Technologies utilisées
 - **LangChain** - Orchestration du pipeline RAG
@@ -92,7 +91,6 @@ markdown
 ## 🏗️ Architecture du système
 ┌─────────────────────────────────────┐
 │ Documents PDF (OCP) │
-│ Rapport Financier Annuel 2023.pdf │
 └────────────────┬────────────────────┘
 ↓
 ┌─────────────────────────────────────┐
