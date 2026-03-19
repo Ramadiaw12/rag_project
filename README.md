@@ -19,8 +19,53 @@
 - [Déploiement](#déploiement)
 - [Contribution](#contribution)
 - [License](#license)
+
+## Dashboard
+
+---
+
+## 💡 L'idée derrière le projet
+
+> *Marre de parcourir 200 pages pour trouver un seul chiffre ?*
+> *J'ai construit l'outil que j'aurais voulu avoir.*
+
+J'ai toujours été fasciné par une question simple : **et si on pouvait parler à ses documents comme à un humain ?**
+
+C'est exactement ce que fait **DocMind**. Charge n'importe quel PDF, pose ta question en français (ou en anglais), et reçois une réponse précise — tirée directement du contenu de ton document. Pas d'invention, pas d'approximation. Juste ton document, qui te répond.
+
+Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** complet que j'ai conçu de A à Z : extraction du texte, découpage intelligent en chunks, vectorisation via OpenAI Embeddings, recherche par similarité cosinus dans ChromaDB, et génération de réponse avec GPT-4o. Le tout enveloppé dans une interface Streamlit en **mode nuit**, parce que les belles choses méritent un beau cadre.
+
+---
+
+## 📸 Aperçu
+
+<div align="center">
+
+<!-- SIDEBAR — chargement PDF -->
+<img src="imgcap/imgA.png" width="30%" alt="Sidebar — chargement de PDFs"/>
+&nbsp;
+<!-- CHAT — réponse contextuelle -->
+<img src="" width="30%" alt="Chat — réponse ancrée dans les sources"/>
+&nbsp;
+<!-- 🖼️ CONTEXTE — chunks retrouvés -->
+<img src="assets/screenshot_context.png" width="30%" alt="Panneau contexte — chunks sources"/>
+
+</div>
+
+<div align="center">
+
+<!-- 🖼️ DASHBOARD COMPLET — vue globale -->
+<img src="assets/screenshot_full.png" width="92%" alt="Dashboard complet — vue night mode"/>
+
+</div>
+
+> 📁 **Pour ajouter tes captures** : crée un dossier `assets/` à la racine et dépose tes screenshots dedans, puis retire les commentaires `<!-- -->`.
+
+---
+
 1. Description du projet
 markdown
+
 ## 🎯 Description du projet
 
 Ce projet implémente un système de **Question-Réponse basé sur RAG (Retrieval Augmented Generation)** pour l'analyse des rapports financiers de l'OCP (Office Chérifien des Phosphates) pour l'année 2023.
@@ -552,4 +597,4 @@ Structuré avec des sections claires
 
 Professionnel avec des badges et du formatage
 
-Pratique avec des exemples utilisables directemen
+Pratique avec des exemples utilisables directement
