@@ -57,8 +57,6 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 ![image alt](https://github.com/Ramadiaw12/rag_project/blob/19958e8c57a6c52010a03af7ec6af2221b6ff10b/Capture%20d%E2%80%99%C3%A9cran%20du%202026-03-19%2014-30-15.png)
 </div>
 
-> 📁 **Pour ajouter tes captures** : crée un dossier `assets/` à la racine et dépose tes screenshots dedans, puis retire les commentaires `<!-- -->`.
-
 ---
 
 1. Description du projet
