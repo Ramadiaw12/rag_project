@@ -1,39 +1,55 @@
-# 📊 RAG OCP Financial Reports - Analyse des rapports financiers 2023
+# 📊 RAG OCP Financial Reports  
+### Analyse intelligente des rapports financiers 2023 avec IA
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![LangChain](https://img.shields.io/badge/langchain-0.1.0-green.svg)](https://python.langchain.com/)
+<div align="center">
+
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/langchain-framework-green.svg)](https://python.langchain.com/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT4--o-purple.svg)](https://openai.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
-## 📋 Table des matières
-- [Description du projet](#description-du-projet)
-- [Architecture](#architecture)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Fonctionnalités](#fonctionnalités)
-- [Structure du code](#structure-du-code)
-- [Évaluation et métriques](#évaluation-et-métriques)
-- [Exemples](#exemples)
-- [Déploiement](#déploiement)
-- [Contribution](#contribution)
-- [License](#license)
-
-## Dashboard
+</div>
 
 ---
 
-## 💡 L'idée derrière le projet
+## 💡 Vision
 
-> *Marre de parcourir 200 pages pour trouver un seul chiffre ?*
-> *J'ai construit l'outil que j'aurais voulu avoir.*
+> *Et si lire un rapport financier devenait une conversation ?*
 
-J'ai toujours été fasciné par une question simple : **et si on pouvait parler à ses documents comme à un humain ?**
+Ce projet propose une approche moderne pour analyser des documents volumineux grâce à un pipeline **RAG (Retrieval-Augmented Generation)**.
 
-C'est exactement ce que fait **DocMind**. Charge n'importe quel PDF, pose ta question en français (ou en anglais), et reçois une réponse précise — tirée directement du contenu de ton document. Pas d'invention, pas d'approximation. Juste ton document, qui te répond.
+L’objectif : transformer des rapports PDF complexes en une **interface conversationnelle intelligente**, capable de fournir des réponses précises, contextualisées et vérifiables.
 
-Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** complet que j'ai conçu de A à Z : extraction du texte, découpage intelligent en chunks, vectorisation via OpenAI Embeddings, recherche par similarité cosinus dans ChromaDB, et génération de réponse avec GPT-4o. Le tout enveloppé dans une interface Streamlit en **mode nuit**, parce que les belles choses méritent un beau cadre.
+---
+
+## 🚀 Use Case
+
+- 📄 Analyse de rapports financiers (OCP 2023)
+- 🔍 Recherche rapide d’informations clés
+- 💬 Interaction en langage naturel (FR / EN)
+- ⚡ Gain de temps sur l’exploration documentaire
+
+---
+
+## 🧠 Comment ça marche ?
+
+Le système repose sur un pipeline complet :
+
+1. Extraction du texte depuis les PDF
+2. Découpage intelligent en chunks
+3. Vectorisation via embeddings OpenAI
+4. Indexation dans une base vectorielle (ChromaDB)
+5. Recherche par similarité (cosine similarity)
+6. Génération de réponses avec GPT-4o
+
+---
+
+## 🎯 Objectif
+
+Permettre aux utilisateurs de :
+- Poser des questions directement à leurs documents
+- Obtenir des réponses fiables basées sur le contenu réel
+- Éviter la lecture manuelle de centaines de pages
 
 ---
 
@@ -41,19 +57,15 @@ Sous le capot, c'est un pipeline **RAG (Retrieval Augmented Generation)** comple
 
 <div align="center">
 
-### 📄 Chargement intelligent de documents PDF
-> Interface permettant d’importer et traiter des fichiers pour le système RAG    
-<!-- SIDEBAR — chargement PDF -->
-    
-![image alt](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
+### 📄 Chargement des documents
+![Upload](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
 
-### 💬 Chat avec réponse contextuelle
-> Génération de réponses basées sur le contenu des documents analysés
-<!-- CHAT — réponse contextuelle -->
-![image alt](https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png)
-<!-- 🖼️ CONTEXTE — chunks retrouvés -->
+### 💬 Chat contextuel
+![Chat](https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png)
 
 </div>
+
+---
 
 <div align="center">
     
@@ -615,6 +627,7 @@ Pratique avec des exemples utilisables directement
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ```mermaid
 graph TB
@@ -682,3 +695,5 @@ graph TB
     style N fill:#ffccbc
 ```
 >>>>>>> 07b7698 (update)
+=======
+>>>>>>> 4832e30 (update)
