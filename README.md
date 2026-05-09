@@ -33,13 +33,13 @@
 <td width="50%">
 
 ### 📄 Chargement des documents
-<img src="docchargement.png" width="100%" alt="Upload interface"/>
+<img src="imgpdf.png" width="100%" alt="Upload interface"/>
 
 </td>
 <td width="50%">
 
 ### 💬 Chat contextuel
-<img src="https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png" width="100%" alt="Chat interface"/>
+<img src="imgres.png" width="100%" alt="Chat interface"/>
 
 </td>
 </tr>
