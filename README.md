@@ -1,699 +1,359 @@
-# 📊 RAG OCP Financial Reports  
-### Analyse intelligente des rapports financiers 2023 avec IA
-
 <div align="center">
 
-[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
-[![LangChain](https://img.shields.io/badge/langchain-framework-green.svg)](https://python.langchain.com/)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT4--o-purple.svg)](https://openai.com/)
-[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+<!-- ANIMATED HEADER -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=RAG%20OCP%20Financial&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Intelligence%20Artificielle%20au%20service%20de%20l'analyse%20financière&descAlignY=60&descColor=a8d8ea&animation=fadeIn"/>
+
+<!-- ANIMATED BADGES -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=500&color=2C9EC2&center=true&vCenter=true&width=600&lines=🤖+RAG+Pipeline+avec+LangChain+%26+GPT-4o;📄+Analyse+de+rapports+PDF+intelligente;💬+Interrogez+vos+documents+en+langage+naturel;⚡+Réponses+précises+et+vérifiables" alt="Typing SVG" />
+</p>
+
+<br/>
+
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![LangChain](https://img.shields.io/badge/LangChain-Framework-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white)](https://python.langchain.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_DB-FF6B35?style=for-the-badge)](https://trychroma.com)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+
+<br/>
+
+> **✨ Et si lire un rapport financier devenait une conversation ?**
+>
+> *Transformez des centaines de pages PDF en interface conversationnelle intelligente.*
 
 </div>
 
 ---
 
-## 💡 Vision
+## 🌟 Aperçu
 
-> *Et si lire un rapport financier devenait une conversation ?*
+<table>
+<tr>
+<td width="50%">
 
-Ce projet propose une approche moderne pour analyser des documents volumineux grâce à un pipeline **RAG (Retrieval-Augmented Generation)**.
+### 📄 Chargement des documents
+<img src="docchargement.png" width="100%" alt="Upload interface"/>
 
-L’objectif : transformer des rapports PDF complexes en une **interface conversationnelle intelligente**, capable de fournir des réponses précises, contextualisées et vérifiables.
+</td>
+<td width="50%">
 
----
+### 💬 Chat contextuel
+<img src="https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png" width="100%" alt="Chat interface"/>
 
-## 🚀 Use Case
+</td>
+</tr>
+</table>
 
-- 📄 Analyse de rapports financiers (OCP 2023)
-- 🔍 Recherche rapide d’informations clés
-- 💬 Interaction en langage naturel (FR / EN)
-- ⚡ Gain de temps sur l’exploration documentaire
+<div align="center">
+
+### 🖥️ Dashboard complet
+<img src="https://github.com/Ramadiaw12/rag_project/blob/19958e8c57a6c52010a03af7ec6af2221b6ff10b/Capture%20d%E2%80%99%C3%A9cran%20du%202026-03-19%2014-30-15.png" width="85%" alt="Dashboard"/>
+
+</div>
 
 ---
 
 ## 🧠 Comment ça marche ?
 
-Le système repose sur un pipeline complet :
+```mermaid
+graph TD
+    A["📄 Rapports PDF — OCP 2023"] --> B["📖 PyPDFDirectoryLoader\nChargement des documents"]
+    B --> C["✂️ RecursiveCharacterTextSplitter\nChunks: 300 tokens · overlap 20"]
+    C --> D["🧮 OpenAIEmbeddings ada-002\nVectorisation des textes"]
+    D --> E[("🗄️ ChromaDB Vector Store\nCollection: rapport_ocp_V2")]
+    E --> F["🔍 Retrieveur sémantique\nTop-K = 5 résultats"]
+    F --> G["🔗 Prompt Builder\nContexte + Question"]
+    G --> H["🤖 GPT-4o-mini\nGénération de la réponse"]
+    H --> I["⚖️ Groundness Checker GPT-4o\nÉvaluation de fidélité 1–5"]
 
-1. Extraction du texte depuis les PDF
-2. Découpage intelligent en chunks
-3. Vectorisation via embeddings OpenAI
-4. Indexation dans une base vectorielle (ChromaDB)
-5. Recherche par similarité (cosine similarity)
-6. Génération de réponses avec GPT-4o
+    style A fill:#1e3a5f,color:#a8d8ea
+    style B fill:#2c5364,color:#e0f2fe
+    style C fill:#203a43,color:#e0f2fe
+    style D fill:#1e3a5f,color:#a8d8ea
+    style E fill:#0f2027,color:#a8d8ea
+    style F fill:#2c5364,color:#e0f2fe
+    style G fill:#203a43,color:#e0f2fe
+    style H fill:#1e3a5f,color:#a8d8ea
+    style I fill:#22c55e,color:#fff
+```
 
 ---
 
-## 🎯 Objectif
-
-Permettre aux utilisateurs de :
-- Poser des questions directement à leurs documents
-- Obtenir des réponses fiables basées sur le contenu réel
-- Éviter la lecture manuelle de centaines de pages
-
----
-
-## 📸 Aperçu
+## 🚀 Stack Technologique
 
 <div align="center">
 
-### 📄 Chargement des documents
-![Upload](https://github.com/Ramadiaw12/rag_project/blob/8f4a7d8e5f2f33b0add59876ccceaac6511cca21/imgpdf.png)
-
-### 💬 Chat contextuel
-![Chat](https://github.com/Ramadiaw12/rag_project/blob/205cc06108806e162c3c26a2d4191b03d472eade/imgres.png)
+| Composant | Technologie | Rôle |
+|-----------|-------------|------|
+| 🔗 **Orchestration** | LangChain | Pipeline RAG complet |
+| 🤖 **LLM** | GPT-4o / GPT-4o-mini | Génération & Évaluation |
+| 🧮 **Embeddings** | text-embedding-ada-002 | Vectorisation des chunks |
+| 🗄️ **Vector Store** | ChromaDB | Stockage & recherche |
+| 📄 **Extraction PDF** | PyPDFLoader | Chargement des documents |
+| ⚖️ **Évaluation** | LLM-as-a-Judge | Score de groundness |
 
 </div>
 
 ---
 
-<div align="center">
-    
-### 📊 Vue globale du dashboard
-> Visualisation complète du pipeline RAG et des interactions utilisateur    
-<!-- 🖼️ DASHBOARD COMPLET — vue globale -->
-![image alt](https://github.com/Ramadiaw12/rag_project/blob/19958e8c57a6c52010a03af7ec6af2221b6ff10b/Capture%20d%E2%80%99%C3%A9cran%20du%202026-03-19%2014-30-15.png)
-</div>
-
----
-
-1. Description du projet
-markdown
-
-## 🎯 Description du projet
-
-Ce projet implémente un système de **Question-Réponse basé sur RAG (Retrieval Augmented Generation)** pour l'analyse des rapports financiers de l'OCP (Office Chérifien des Phosphates) pour l'année 2023.
-
-### Objectifs
-- 📈 Permettre l'interrogation en langage naturel 
-- 🔍 Extraire des informations précises à partir de documents PDF
-- 🤖 Générer des réponses contextualisées et fidèles aux documents sources
-- ✅ Évaluer automatiquement la qualité des réponses (groundness)
-
-
-
-### Technologies utilisées
-- **LangChain** - Orchestration du pipeline RAG
-- **OpenAI GPT-4o / GPT-4o-mini** - Génération de réponses et évaluation
-- **ChromaDB** - Base de données vectorielle
-- **PyPDFLoader** - Extraction des PDFs
-- **python-dotenv** - Gestion des variables d'environnement
-2. Architecture
-markdown
-## 🏗️ Architecture du système
-┌─────────────────────────────────────┐
-│ Documents PDF (OCP) │graph TD
-    A[Documents PDF (OCP)] --> B[PyPDFDirectoryLoader<br/>Chargement des documents]
-    B --> C[RecursiveCharacterTextSplitter<br/>Chunks: 300 tokens, overlap 20]
-    C --> D[OpenAIEmbeddings (ada-002)<br/>Vectorisation des textes]
-    D --> E[ChromaDB Vector Store<br/>Collection: rapport_ocp_V2]
-    E --> F[PIPELINE RAG]
-    F --> G[Question → Retrieveur (k=5) → Contexte → Prompt → LLM → Réponse]
-    G --> H[Groundness Checker (GPT-4o)<br/>Évaluation de la fidélité]    graph TD
-        A[Documents PDF (OCP)] --> B[PyPDFDirectoryLoader<br/>Chargement des documents]
-        B --> C[RecursiveCharacterTextSplitter<br/>Chunks: 300 tokens, overlap 20]
-        C --> D[OpenAIEmbeddings (ada-002)<br/>Vectorisation des textes]
-        D --> E[ChromaDB Vector Store<br/>Collection: rapport_ocp_V2]
-        E --> F[PIPELINE RAG]
-        F --> G[Question → Retrieveur (k=5) → Contexte → Prompt → LLM → Réponse]
-        G --> H[Groundness Checker (GPT-4o)<br/>Évaluation de la fidélité]
-└────────────────┬────────────────────┘
-↓
-┌─────────────────────────────────────┐
-│ PyPDFDirectoryLoader │
-│ Chargement des documents │
-└────────────────┬────────────────────┘
-↓
-┌─────────────────────────────────────┐
-│ RecursiveCharacterTextSplitter │
-│ Chunks: 300 tokens, overlap 20 │
-└────────────────┬────────────────────┘
-↓
-┌─────────────────────────────────────┐
-│ OpenAIEmbeddings (ada-002) │
-│ Vectorisation des textes │
-└────────────────┬────────────────────┘
-↓
-┌─────────────────────────────────────┐
-│ ChromaDB Vector Store │
-│ Collection: rapport_ocp_V2 │
-└────────────────┬────────────────────┘
-↓
-┌─────────────────────────────────────────────────────────────────┐
-│ PIPELINE RAG │
-├─────────────────────────────────────────────────────────────────┤
-│ Question → Retrieveur (k=5) → Contexte → Prompt → LLM → Réponse │
-└─────────────────────────────────────────────────────────────────┘
-↓
-┌─────────────────────────────────────┐
-│ Groundness Checker (GPT-4o) │
-│ Évaluation de la fidélité │
-└─────────────────────────────────────┘
-
-text
-
-### Flux de données
-1. **Ingestion**: Chargement des PDFs et découpage en chunks (300 tokens)
-2. **Indexation**: Vectorisation des chunks et stockage dans ChromaDB
-3. **Recherche**: Similarité cosinus pour trouver les chunks pertinents
-4. **Génération**: Construction d'un prompt avec contexte et question
-5. **Évaluation**: Vérification automatique de la qualité des réponses
-3. Prérequis
-markdown
-## 🔧 Prérequis
-
-- **Python 3.9 ou supérieur**
-- **Clé API OpenAI** (avec accès aux modèles gpt-4o et text-embedding-ada-002)
-- **Environnement Unix/Linux/MacOS ou Windows** (avec WSL recommandé pour Windows)
-
-### Modèles OpenAI utilisés
-| Modèle | Usage | Coût approximatif |
-|--------|-------|-------------------|
-| `gpt-4o-mini` | Génération de réponses RAG | $0.15 / 1M tokens (input), $0.60 / 1M tokens (output) |
-| `gpt-4o` | Évaluation (groundness checker) | $5.00 / 1M tokens (input), $15.00 / 1M tokens (output) |
-| `text-embedding-ada-002` | Vectorisation des chunks | $0.13 / 1M tokens |
-
-> **Note**: Les coûts sont indicatifs. Un rapport financier typique de 200 pages représente environ 1000-1500 chunks, soit ~$0.15 d'embeddings.
-4. Installation
-markdown
 ## 📦 Installation
 
-### 1. Cloner le dépôt
+### 1️⃣ Cloner le dépôt
+
 ```bash
-git clone https://github.com/votre-username/rag-ocp-financial.git
-cd rag-ocp-financial
-2. Créer un environnement virtuel
-bash
+git clone https://github.com/Ramadiaw12/rag_project.git
+cd rag_project
+```
+
+### 2️⃣ Créer l'environnement virtuel
+
+```bash
 python -m venv venv
-source venv/bin/activate  # Sur Windows: venv\Scripts\activate
-3. Installer les dépendances
-bash
+source venv/bin/activate        # Linux / macOS
+# venv\Scripts\activate         # Windows
+```
+
+### 3️⃣ Installer les dépendances
+
+```bash
 pip install -r requirements.txt
-4. Configurer les variables d'environnement
-bash
+```
+
+### 4️⃣ Configurer les variables d'environnement
+
+```bash
 cp .env.example .env
-# Éditez .env avec votre clé API OpenAI
-5. Placer les documents PDF
-bash
+# Ouvrez .env et ajoutez votre clé OpenAI
+```
+
+### 5️⃣ Placer vos PDFs
+
+```bash
 mkdir -p pdfs
-# Copiez vos rapports financiers OCP dans le dossier pdfs/
-Fichier requirements.txt
-text
-langchain>=0.1.0
-langchain-openai>=0.1.0
-langchain-community>=0.1.0
-chromadb>=0.4.0
-python-dotenv>=1.0.0
-pypdf>=3.0.0
-ipython>=8.0.0  # Pour Jupyter/Colab
-jupyter>=1.0.0  # Optionnel
-tenacity>=8.0.0 # Pour les retry
-termcolor>=2.0.0 # Pour couleur console
-text
+# Copiez vos rapports OCP dans pdfs/
+```
 
 ---
 
-## **5. Configuration**
-
-```markdown
 ## ⚙️ Configuration
 
-### Variables d'environnement (.env)
 ```env
-# Obligatoire
-OPENAI_API_KEY=votre_clé_api_ici
+# .env — Variables d'environnement
 
-# Optionnel (pour tracking)
-LANGCHAIN_API_KEY=votre_clé_langsmith
-LANGCHAIN_PROJECT=rag-ocp-financial
-
-# Configuration des modèles (optionnel)
-CHUNK_SIZE=300
-CHUNK_OVERLAP=20
-TOP_K_RESULTS=5
-Structure des dossiers
-text
-rag-ocp-financial/
-├── .env                        # Variables d'environnement
-├── 📁 pdfs/                    # Dossier contenant les rapports PDF
-│   └── Rapport Financier Annuel OCP 2023.pdf
-├── 📁 store/                   # Base vectorielle Chroma (générée)
-├── .env
-├── .gitignore 
-├── .python-version
-├── main.py
-├── pyproject.toml
-├── rag.png    
-├── 📁 rag.py                    # code source du dashboard 
-├── 📁 RAGV2.ipnb                    # Code source du projet
-├── README.md                                           
-└── requirements.txt             
-text
-
----
-
-## **6. Utilisation**
-
-```markdown
-## 🚀 Utilisation
-
-### 1. Initialisation de la base vectorielle (première utilisation)
-```python
-from rag_pipeline import initialize_vectorstore
-
-# Charge les PDFs, crée les chunks et indexe dans Chroma
-vectorstore = initialize_vectorstore("./pdfs", force_recreate=False)
-2. Interrogation simple
-python
-from rag_pipeline import RAG
-
-# Posez une question
-response = RAG("Quel est le chiffre d'affaires de l'OCP en 2023?")
-print(response)
-3. Mode interactif
-python
-from rag_pipeline import interactive_qa
-
-# Lancez une session interactive
-interactive_qa()
-4. Évaluation automatique
-python
-from evaluation import evaluate_with_metrics
-
-# Évalue la qualité de la réponse
-metrics = evaluate_with_metrics("Quelles sont les performances financières?")
-print(f"Score groundness: {metrics['score']}/5")
-5. Script complet d'exemple
-python
-# example.py
-from rag_pipeline import RAG
-from evaluation import evaluate
-import os
-
-# Configuration
-os.makedirs("./pdfs", exist_ok=True)
-
-# Question
-question = "État du résultat global consolidé"
-print(f"🔍 Question: {question}")
-
-# Réponse
-answer = RAG(question)
-print(f"📝 Réponse: {answer[:200]}...")
-
-# Évaluation (optionnel)
-if os.getenv("OPENAI_API_KEY"):
-    eval_result = evaluate(question)
-    print(f"⚖️ Évaluation: {eval_result}")
-text
-
----
-
-## **7. Fonctionnalités**
-
-```markdown
-## ✨ Fonctionnalités
-
-### Core Features
-| Fonctionnalité | Description | Statut |
-|----------------|-------------|--------|
-| 🔍 Recherche sémantique | Trouve les passages pertinents via embeddings | ✅ |
-| 🤖 Génération RAG | Réponses contextuelles avec GPT-4o-mini | ✅ |
-| 📄 Support multi-PDF | Traite tous les PDFs d'un dossier | ✅ |
-| ⚖️ Évaluation automatique | Vérification de groundness avec GPT-4o | ✅ |
-| 💾 Persistance | Sauvegarde/recharge de la base vectorielle | ✅ |
-| 🔄 Lazy loading | Traitement mémoire optimisé pour gros PDFs | ✅ |
-
-### Advanced Features
-| Fonctionnalité | Description | Statut |
-|----------------|-------------|--------|
-| 🎯 Filtrage par métadonnées | Recherche par source/page | 🚧 En développement |
-| 📊 Visualisation des scores | Affichage des similarités | 🚧 En développement |
-| 🔁 Mode conversationnel | Historique de questions | 🚧 En développement |
-| 🌐 API REST | Exposition via FastAPI | 🚧 En développement |
-| 📱 Interface Streamlit | UI utilisateur | 🚧 En développement |
-8. Structure du code détaillée
-markdown
-## 📁 Structure du code
-
-### `rag_pipeline.py` - Pipeline principal
-```python
-# Fonctions principales
-- initialize_vectorstore()  # Crée ou charge la base vectorielle
-- RAG()                     # Pipeline complet question → réponse
-- interactive_qa()          # Mode interactif
-- process_pdfs_lazily()     # Traitement optimisé mémoire
-evaluation.py - Système d'évaluation
-python
-# Fonctions d'évaluation
-- evaluate()                 # Évaluation simple
-- evaluate_with_metrics()    # Évaluation avec métriques structurées
-- batch_evaluate()           # Évaluation multiple
-- GroundnessChecker class    # Évaluateur avec cache
-utils.py - Utilitaires
-python
-# Fonctions utilitaires
-- setup_logging()            # Configuration des logs
-- validate_env()             # Validation des variables d'environnement
-- estimate_tokens()          # Estimation du nombre de tokens
-- save_interaction()         # Sauvegarde Q/R pour audit
-Configuration des prompts
-python
-# prompts.py
-RAG_TEMPLATE = """
-Answer the following question based only on provided context
-<context>
-{context}
-</context>
-<question>
-{question}
-</question>
-If the answer is not found, answer: JE NE SAIS PAS
-"""
-
-GROUNDNESS_TEMPLATE = """
-Tu es un juge évaluant la fidélité au contexte.
-Score (1-5): ...
-"""
-text
-
----
-
-## **9. Évaluation et métriques**
-
-```markdown
-## 📊 Évaluation et métriques
-
-### Métriques de groundness
-Le système intègre un auto-évaluateur (LLM-as-a-judge) qui mesure:
-
-| Métrique | Description | Échelle |
-|----------|-------------|---------|
-| **Score de groundness** | Fidélité de la réponse au contexte | 1-5 |
-| **Hallucinations** | Informations non présentes dans les docs | Liste |
-| **Couverture** | Proportion de la question répondue | 0-100% |
-| **Pertinence** | Adéquation de la réponse à la question | 1-5 |
-
-### Exemple de rapport d'évaluation
-```json
-{
-  "question": "Quel est le chiffre d'affaires 2023?",
-  "score": 5,
-  "hallucinations": [],
-  "faithfulness": true,
-  "explanation": "La réponse cite exactement les 87,4 Mds MAD présents dans le contexte",
-  "context_length": 1250,
-  "answer_length": 187,
-  "processing_time": 2.3
-}
-Tests de robustesse
-bash
-# Lancer les tests unitaires
-pytest tests/
-
-# Tester avec différentes questions
-python -m src.test_suite
-text
-
----
-
-## **10. Exemples d'utilisation**
-
-```markdown
-## 💡 Exemples
-
-### Requêtes financières typiques
-```python
-questions = [
-    "Quel est le chiffre d'affaires de l'OCP en 2023?",
-    "Comment a évolué l'EBITDA par rapport à 2022?",
-    "État du résultat global consolidé",
-    "Quels sont les principaux risques mentionnés?",
-    "Quelle est la politique de dividendes?"
-]
-
-for q in questions:
-    print(f"\nQ: {q}")
-    print(f"R: {RAG(q)[:200]}...")
-Résultats attendus
-text
-Q: Quel est le chiffre d'affaires de l'OCP en 2023?
-R: Le chiffre d'affaires consolidé s'établit à 87,4 milliards de dirhams en 2023...
-
-Q: État du résultat global consolidé
-R: Le résultat net part du groupe s'élève à 28,1 milliards de dirhams...
-
-Q: Je veux dormir (hors contexte)
-R: JE NE SAIS PAS
-text
-
----
-
-## **11. Déploiement**
-
-```markdown
-## 🚢 Déploiement
-
-### Option 1: API FastAPI
-```python
-# api.py
-from fastapi import FastAPI
-from pydantic import BaseModel
-from rag_pipeline import RAG
-
-app = FastAPI()
-
-class Query(BaseModel):
-    question: str
-    user_id: str = None
-
-@app.post("/ask")
-async def ask(query: Query):
-    answer = RAG(query.question)
-    return {"question": query.question, "answer": answer}
-
-# uvicorn api:app --reload
-Option 2: Interface Streamlit
-python
-# app.py
-import streamlit as st
-from rag_pipeline import RAG
-
-st.title("📊 RAG OCP Financial Assistant")
-question = st.text_input("Posez votre question:")
-if question:
-    with st.spinner("Recherche en cours..."):
-        answer = RAG(question)
-    st.markdown(answer)
-Option 3: Docker
-dockerfile
-FROM python:3.10-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "-m", "src.interactive"]
-text
-
----
-
-## **12. Bonnes pratiques et optimisation**
-
-```markdown
-## 🎯 Bonnes pratiques
-
-### Optimisation des coûts
-1. **Cache des embeddings**: Évite de re-vectoriser les mêmes textes
-2. **Chunks optimisés**: 300 tokens équilibre précision/contexte
-3. **Reuse de la base**: Chargez Chroma une seule fois
-4. **Lazy loading**: Pour les très gros documents
-
-### Gestion des erreurs
-```python
-try:
-    response = RAG(question)
-except Exception as e:
-    logger.error(f"Erreur: {e}")
-    response = "Service temporairement indisponible"
-Monitoring
-Logs structurés (JSON)
-
-Métriques de performance
-
-Alertes sur coûts API
-
-text
-
----
-
-## **13. Contribution**
-
-```markdown
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-
-### Comment contribuer
-1. Fork le projet
-2. Créez votre branche (`git checkout -b feature/amazing-feature`)
-3. Committez vos changements (`git commit -m 'Add amazing feature'`)
-4. Push vers la branche (`git push origin feature/amazing-feature`)
-5. Ouvrez une Pull Request
-
-### Roadmap
-- [ ] Support d'autres formats (Excel, Word)
-- [ ] Interface graphique Streamlit
-- [ ] Support multilingue
-- [ ] Fine-tuning sur données financières
-- [ ] Intégration avec bases de données externes
-14. License
-markdown
-## 📄 License
-
-Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
-
-## 📧 Contact
-
-Votre Nom - [@votre_twitter](https://twitter.com/...) - email@example.com
-
-Lien du projet: [https://github.com/votre-username/rag-ocp-financial](https://github.com/votre-username/rag-ocp-financial)
-
-## 🙏 Remerciements
-- [LangChain](https://python.langchain.com/)
-- [OpenAI](https://openai.com/)
-- [ChromaDB](https://www.trychroma.com/)
-- [OCP Group](https://www.ocpgroup.ma/) pour les rapports publics
-Fichier .env.example
-env
-# OpenAI API Key - Obligatoire
+# 🔑 Obligatoire
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-# Optionnel - LangSmith pour le tracing
+# 📡 Optionnel — LangSmith tracing
 LANGCHAIN_API_KEY=ls_xxxxxxxxxxxxxxxxxxxx
 LANGCHAIN_PROJECT=rag-ocp-financial
 LANGCHAIN_TRACING_V2=true
 
-# Configuration du système
+# ⚙️ Paramètres RAG
 CHUNK_SIZE=300
 CHUNK_OVERLAP=20
 TOP_K_RESULTS=5
 MAX_CONTEXT_TOKENS=4000
 
-# Mode debug
+# 🐛 Debug
 DEBUG=false
 LOG_LEVEL=INFO
-Badges et visuels
-Vous pouvez ajouter ces badges en haut du README:
-
-markdown
-[![Python](https://img.shields.io/badge/python-3.9+-blue?logo=python)](https://python.org)
-[![LangChain](https://img.shields.io/badge/LangChain-0.1.0-green?logo=langchain)](https://langchain.com)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT4--o-purple?logo=openai)](https://openai.com)
-[![Chroma](https://img.shields.io/badge/ChromaDB-0.4.0-orange)](https://trychroma.com)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-Résumé final
-Ce README professionnel couvre:
-
-Présentation claire du projet et de ses objectifs
-
-Architecture détaillée avec diagramme ASCII
-
-Installation pas à pas avec toutes les dépendances
-
-Configuration complète (variables d'environnement)
-
-Exemples d'utilisation concrets
-
-Documentation technique des fonctions principales
-
-Métriques et évaluation du système
-
-Options de déploiement (API, Streamlit, Docker)
-
-Bonnes pratiques d'optimisation
-
-Guide de contribution et roadmap
-
-Le README est conçu pour être:
-
-Complet mais pas trop long
-
-Structuré avec des sections claires
-
-Professionnel avec des badges et du formatage
-
-Pratique avec des exemples utilisables directement
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-```mermaid
-graph TB
-    subgraph "📚 Input Layer"
-        A["📄 Documents<br/>PDF, TXT, etc."]
-        B["🗣️ User Query"]
-    end
-
-    subgraph "🔄 Data Processing"
-        C["📖 Document Loader"]
-        D["✂️ Text Chunking"]
-        E["🧮 Embeddings<br/>Vectorization"]
-    end
-
-    subgraph "💾 Storage & Retrieval"
-        F[("🗄️ Vector Database<br/>ChromaDB/Pinecone")]
-        G["🔍 Retriever<br/>Semantic Search"]
-    end
-
-    subgraph "🤖 Augmentation & Generation"
-        H["📚 Context Preparation<br/>Top-K Results"]
-        I["🔗 Prompt Builder<br/>Context + Query"]
-        J["🧠 LLM Model<br/>GPT/Llama/Claude"]
-    end
-
-    subgraph "📤 Output Layer"
-        K["💬 Generated Response"]
-        L["📊 Confidence Score"]
-    end
-
-    subgraph "🔄 Feedback Loop"
-        M["👤 User Feedback"]
-        N["📈 Model Tuning"]
-    end
-
-    A -->|Parse & Extract| C
-    B -->|Encode| E
-    C --> D
-    D --> E
-    E -->|Store Vectors| F
-    B -->|Search Similar| G
-    F -->|Retrieve| G
-    G -->|Top-K Results| H
-    H --> I
-    I --> J
-    J -->|Generate| K
-    J -->|Calculate| L
-    K --> M
-    M -->|Improve| N
-    N -.->|Refine| J
-
-    style A fill:#e1f5ff
-    style B fill:#e1f5ff
-    style C fill:#fff9c4
-    style D fill:#fff9c4
-    style E fill:#fff9c4
-    style F fill:#c8e6c9
-    style G fill:#c8e6c9
-    style H fill:#ffe0b2
-    style I fill:#ffe0b2
-    style J fill:#f8bbd0
-    style K fill:#d1c4e9
-    style L fill:#d1c4e9
-    style M fill:#ffccbc
-    style N fill:#ffccbc
 ```
->>>>>>> 07b7698 (update)
-=======
->>>>>>> 4832e30 (update)
+
+---
+
+## 💡 Utilisation
+
+### Initialisation de la base vectorielle
+
+```python
+from rag_pipeline import initialize_vectorstore
+
+vectorstore = initialize_vectorstore("./pdfs", force_recreate=False)
+```
+
+### Interrogation simple
+
+```python
+from rag_pipeline import RAG
+
+response = RAG("Quel est le chiffre d'affaires de l'OCP en 2023 ?")
+print(response)
+```
+
+### Mode interactif
+
+```python
+from rag_pipeline import interactive_qa
+
+interactive_qa()
+```
+
+### Évaluation automatique
+
+```python
+from evaluation import evaluate_with_metrics
+
+metrics = evaluate_with_metrics("Quelles sont les performances financières ?")
+print(f"Score groundness : {metrics['score']}/5")
+```
+
+---
+
+## 📊 Exemples de résultats
+
+```
+🔍 Q : Quel est le chiffre d'affaires de l'OCP en 2023 ?
+📝 R : Le chiffre d'affaires consolidé s'établit à 87,4 milliards de dirhams...
+
+🔍 Q : Comment a évolué l'EBITDA par rapport à 2022 ?
+📝 R : Le résultat net part du groupe s'élève à 28,1 milliards de dirhams...
+
+🔍 Q : Je veux dormir (hors contexte)
+📝 R : JE NE SAIS PAS
+```
+
+---
+
+## ✨ Fonctionnalités
+
+### ✅ Disponibles
+
+| # | Fonctionnalité | Description |
+|---|----------------|-------------|
+| 🔍 | **Recherche sémantique** | Similarité cosinus via embeddings |
+| 🤖 | **Génération RAG** | Réponses contextuelles avec GPT-4o-mini |
+| 📄 | **Multi-PDF** | Traitement de tous les PDFs d'un dossier |
+| ⚖️ | **Auto-évaluation** | Groundness checker avec GPT-4o |
+| 💾 | **Persistance** | Sauvegarde / rechargement Chroma |
+| 🔄 | **Lazy loading** | Traitement mémoire optimisé |
+
+### 🚧 En développement
+
+| # | Fonctionnalité | Description |
+|---|----------------|-------------|
+| 🎯 | Filtrage par métadonnées | Recherche par source/page |
+| 📊 | Scores de similarité | Visualisation des scores de retrieval |
+| 🔁 | Mode conversationnel | Historique de questions multi-tour |
+| 🌐 | API REST FastAPI | Exposition du pipeline via API |
+| 📱 | Interface Streamlit | UI utilisateur interactive |
+
+---
+
+## 📊 Métriques d'évaluation
+
+<div align="center">
+
+| Métrique | Échelle | Description |
+|----------|---------|-------------|
+| 🏆 **Groundness** | 1 → 5 | Fidélité de la réponse au contexte |
+| 🚨 **Hallucinations** | Liste | Infos non présentes dans les docs |
+| 📐 **Couverture** | 0 → 100% | Proportion de la question répondue |
+| 🎯 **Pertinence** | 1 → 5 | Adéquation réponse / question |
+
+</div>
+
+**Exemple de rapport JSON :**
+
+```json
+{
+  "question": "Quel est le chiffre d'affaires 2023 ?",
+  "score": 5,
+  "hallucinations": [],
+  "faithfulness": true,
+  "explanation": "La réponse cite exactement les 87,4 Mds MAD du contexte",
+  "context_length": 1250,
+  "answer_length": 187,
+  "processing_time": 2.3
+}
+```
+
+---
+
+## 💰 Estimation des coûts OpenAI
+
+| Modèle | Usage | Coût indicatif |
+|--------|-------|----------------|
+| `gpt-4o-mini` | Génération RAG | $0.15 / 1M tokens (input) |
+| `gpt-4o` | Groundness checker | $5.00 / 1M tokens (input) |
+| `text-embedding-ada-002` | Vectorisation | $0.13 / 1M tokens |
+
+> 💡 Un rapport de ~200 pages ≈ 1000–1500 chunks ≈ **~$0.15 d'embeddings**
+
+---
+
+## 🗂️ Structure du projet
+
+```
+rag_project/
+├── 📄 .env                    # Variables d'environnement
+├── 📄 .env.example            # Template de configuration
+├── 📄 .gitignore
+├── 📄 requirements.txt
+├── 📄 main.py                 # Point d'entrée principal
+├── 📄 rag.py                  # Dashboard Streamlit
+├── 📓 RAGV2.ipynb             # Notebook de développement
+├── 📁 pdfs/                   # Rapports PDF sources
+│   └── Rapport Financier OCP 2023.pdf
+├── 📁 store/                  # Base vectorielle Chroma (générée)
+└── 📄 README.md
+```
+
+---
+
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues ! 🎉
+
+```bash
+# 1. Forkez le projet
+# 2. Créez votre branche
+git checkout -b feature/nouvelle-fonctionnalite
+
+# 3. Commitez vos changements
+git commit -m "feat: ajout de la fonctionnalité X"
+
+# 4. Pushez vers votre fork
+git push origin feature/nouvelle-fonctionnalite
+
+# 5. Ouvrez une Pull Request 🚀
+```
+
+### 🗺️ Roadmap
+
+- [ ] 📊 Interface Streamlit complète
+- [ ] 🌐 API REST avec FastAPI
+- [ ] 🔁 Mode conversationnel multi-tour
+- [ ] 📂 Support Excel & Word
+- [ ] 🌍 Support multilingue (FR / EN / AR)
+- [ ] 🎯 Fine-tuning sur données financières
+- [ ] 🐋 Dockerisation complète
+
+---
+
+## 📄 Licence
+
+Distribué sous la licence **MIT**. Voir [`LICENSE`](LICENSE) pour plus d'informations.
+
+---
+
+<div align="center">
+
+### 🙏 Remerciements
+
+[![LangChain](https://img.shields.io/badge/LangChain-Docs-1C3C3C?style=flat-square&logo=chainlink)](https://python.langchain.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Platform-412991?style=flat-square&logo=openai)](https://openai.com/)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_DB-FF6B35?style=flat-square)](https://trychroma.com)
+[![OCP Group](https://img.shields.io/badge/OCP_Group-Rapports_Publics-0066CC?style=flat-square)](https://www.ocpgroup.ma/)
+
+<br/>
+
+---
+
+**Conçu avec ❤️ par [DIAWANE Ramatoulaye](https://github.com/Ramadiaw12)**
+
+*"L'IA ne remplace pas l'analyste — elle lui donne des super-pouvoirs."*
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=120&section=footer"/>
+
+</div>
