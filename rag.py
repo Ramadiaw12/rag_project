@@ -378,9 +378,9 @@ with st.sidebar:
                 st.session_state.docs_meta    = meta
                 st.session_state.total_chunks = len(chunks)
                 st.session_state.chat_history = []
-                st.success(f"✅ Indexed {len(chunks)} chunks from {len(meta)} document(s)!")
+                st.success(f"Indexed {len(chunks)} chunks from {len(meta)} document(s)!")
             except Exception as e:
-                st.error(f"❌ Error: {e}")
+                st.error(f"Error: {e}")
 
     st.markdown('<hr class="rag-divider">', unsafe_allow_html=True)
 
@@ -406,13 +406,13 @@ with st.sidebar:
 
     st.markdown('<hr class="rag-divider">', unsafe_allow_html=True)
 
-    if st.button("🗑️ Clear conversation", use_container_width=True):
+    if st.button("Clear conversation", use_container_width=True):
         st.session_state.chat_history = []
         st.rerun()
 
-# ─────────────────────────────────────────────
+# 
 #  MAIN CONTENT
-# ─────────────────────────────────────────────
+# 
 st.markdown(
     """<div class="hero-banner">
         <h1>DocMind — Retrieval Augmented Generation</h1>
@@ -421,7 +421,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# ── Metrics ──
+# Metrics
 docs_count      = len(st.session_state.docs_meta)
 total_pages     = sum(d.get("pages", 0) for d in st.session_state.docs_meta)
 total_questions = sum(1 for m in st.session_state.chat_history if m["role"] == "user")
@@ -444,7 +444,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 chat_col, ctx_col = st.columns([2, 1], gap="large")
 
 with chat_col:
-    st.markdown("#### 💬 Conversation")
+    st.markdown("#### Conversation")
     chat_container = st.container(height=480)
     with chat_container:
         if not st.session_state.chat_history:
@@ -485,7 +485,7 @@ with chat_col:
             submitted = st.form_submit_button("Send ➤", type="primary", use_container_width=True)
         with col_hint:
             if not st.session_state.retriever:
-                st.caption("⚠️ Index your documents first.")
+                st.caption(" Index your documents first.")
 
     if submitted and user_q:
         if not st.session_state.retriever:
@@ -500,12 +500,12 @@ with chat_col:
                     )
                 except Exception as e:
                     st.session_state.chat_history.append(
-                        {"role": "ai", "content": f"⚠️ Error: {e}", "sources": []}
+                        {"role": "ai", "content": f"Error: {e}", "sources": []}
                     )
             st.rerun()
 
 with ctx_col:
-    st.markdown("#### 🔍 Source Context")
+    st.markdown("#### Source Context")
     last_ai = next(
         (m for m in reversed(st.session_state.chat_history) if m["role"] == "ai"), None
     )
@@ -527,7 +527,7 @@ with ctx_col:
         )
 
     st.markdown('<hr class="rag-divider">', unsafe_allow_html=True)
-    st.markdown("#### ℹ️ How it works")
+    st.markdown("#### How it works")
     st.markdown
     """<div class="rag-card" style="font-size:.85rem;line-height:1.75;">
 <strong style="color:#818CF8;">1. 📄 Upload</strong> — Load one or more PDF documents.<br><br>
