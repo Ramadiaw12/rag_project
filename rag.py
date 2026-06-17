@@ -9,24 +9,24 @@ import os
 
 load_dotenv(override=True)
 
-# ─────────────────────────────────────────────
+# 
 #  Page config (must be first Streamlit call)
-# ─────────────────────────────────────────────
+# 
 st.set_page_config(
     page_title="RAG · DocMind",
-    page_icon="🧠",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# ─────────────────────────────────────────────
+# 
 #  Night-mode CSS  (forced, no toggle)
-# ─────────────────────────────────────────────
+# 
 DARK_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* ── Tokens ───────────────────────────────── */
+/* Tokens */
 :root {
     --accent:      #818CF8;
     --accent-h:    #A5B4FC;
@@ -47,7 +47,7 @@ DARK_CSS = """
     --glow:        0 0 28px rgba(129,140,248,.18);
 }
 
-/* ── Reset / base ─────────────────────────── */
+/* Reset / base */
 html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif !important;
     color: var(--text) !important;
@@ -56,7 +56,7 @@ h1,h2,h3,h4 { font-family:'Syne',sans-serif !important; color:var(--text) !impor
 #MainMenu,footer,header { visibility:hidden; }
 .block-container { padding-top:1.5rem !important; }
 
-/* ── Force dark everywhere ────────────────── */
+/* Force dark everywhere */
 .stApp,
 [data-theme="light"] .stApp,
 [data-theme="dark"]  .stApp {
@@ -72,7 +72,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 [data-testid="stHorizontalBlock"],
 .element-container { background: transparent !important; }
 
-/* ── Expander ─────────────────────────────── */
+/* Expander */
 [data-testid="stExpander"] {
     background: var(--bg-raised) !important;
     border: 1px solid var(--border) !important;
@@ -81,7 +81,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 [data-testid="stExpander"] summary,
 [data-testid="stExpander"] summary p { color: var(--text) !important; }
 
-/* ── Inputs ───────────────────────────────── */
+/* Inputs */
 .stTextInput > div > div > input,
 .stTextArea  > div > div > textarea,
 [data-baseweb="input"] input {
