@@ -95,7 +95,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .stTextArea  > div > div > textarea::placeholder { color:var(--muted) !important; }
 [data-baseweb="form-control-label"] { color:var(--text) !important; }
 
-/* ── File uploader ────────────────────────── */
+/* File uploader */
 [data-testid="stFileUploader"] {
     background: var(--bg-raised) !important;
     border: 1.5px dashed var(--border-mid) !important;
@@ -104,7 +104,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 [data-testid="stFileUploader"] span,
 [data-testid="stFileUploader"] p { color: var(--muted) !important; }
 
-/* ── Buttons ──────────────────────────────── */
+/* Buttons */
 .stButton > button {
     border-radius: var(--rs) !important;
     font-family: 'DM Sans',sans-serif !important;
@@ -130,16 +130,16 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
     box-shadow: 0 6px 24px rgba(109,40,217,.55) !important;
 }
 
-/* ── Slider ───────────────────────────────── */
+/* Slider */
 [data-testid="stSlider"] label { color:var(--text) !important; }
 
-/* ── Scrollbar ────────────────────────────── */
+/* Scrollbar */
 ::-webkit-scrollbar { width:6px; height:6px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
 ::-webkit-scrollbar-thumb { background: #2A2A3E; border-radius:3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* ── Cards ────────────────────────────────── */
+/*  cards  */
 .rag-card {
     background: var(--bg-raised);
     border: 1px solid var(--border);
@@ -151,7 +151,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .rag-card:hover { border-color:var(--border-mid); box-shadow:var(--glow); }
 .rag-card p, .rag-card span, .rag-card li { color:var(--text) !important; }
 
-/* ── Metric cards ─────────────────────────── */
+/* Metric cards */
 .metric-card {
     background: var(--bg-raised);
     border: 1px solid var(--border);
@@ -164,7 +164,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .metric-value { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:700; color:var(--accent); }
 .metric-label { font-size:.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-top:.2rem; }
 
-/* ── Hero ─────────────────────────────────── */
+/* Hero */
 .hero-banner {
     background: linear-gradient(135deg,#1E1B5E 0%,#2D1B69 100%);
     border: 1px solid rgba(129,140,248,.22);
@@ -176,7 +176,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .hero-banner h1 { color:#fff !important; font-size:1.9rem; margin:0 0 .35rem; }
 .hero-banner p  { color:rgba(255,255,255,.72) !important; margin:0; font-size:.95rem; }
 
-/* ── Chat bubbles ─────────────────────────── */
+/* Chat bubbles */
 .chat-bubble-user {
     background: linear-gradient(135deg,#3730A3,#5B21B6);
     color: #fff;
@@ -203,7 +203,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .chat-sender.user      { color:rgba(255,255,255,.6); }
 .chat-sender.ai        { color:var(--accent); }
 
-/* ── Source pills ─────────────────────────── */
+/* Source pills */
 .source-pill {
     display: inline-block;
     background: var(--accent-dim);
@@ -215,7 +215,7 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
     margin: .25rem .25rem 0 0;
 }
 
-/* ── Doc badges ───────────────────────────── */
+/* Doc badges */
 .doc-badge {
     display: flex;
     align-items: center;
@@ -230,10 +230,10 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 }
 .doc-icon { font-size:1.1rem; }
 
-/* ── Divider ──────────────────────────────── */
+/* Divider */
 .rag-divider { border:none; border-top:1px solid var(--border); margin:1.25rem 0; }
 
-/* ── Status dots ──────────────────────────── */
+/* Status dots */
 .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; }
 .status-dot.ok    { background:var(--success); box-shadow:0 0 8px rgba(16,185,129,.55); }
 .status-dot.warn  { background:var(--warning); }
