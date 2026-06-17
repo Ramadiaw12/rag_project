@@ -239,14 +239,14 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 .status-dot.warn  { background:var(--warning); }
 .status-dot.error { background:var(--danger); }
 
-/* ── Form container ───────────────────────── */
+/* Form container */
 [data-testid="stForm"] {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
 }
 
-/* ── Alerts ───────────────────────────────── */
+/* Alerts  */
 .stAlert { border-radius: var(--r) !important; }
 [data-testid="stMarkdownContainer"] p { color:var(--text) !important; }
 </style>
@@ -254,17 +254,17 @@ section[data-testid="stSidebar"] .block-container { padding-top:2rem; }
 
 st.markdown(DARK_CSS, unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
+# 
 #  Session state
-# ─────────────────────────────────────────────
+# 
 if "retriever"    not in st.session_state: st.session_state.retriever    = None
 if "chat_history" not in st.session_state: st.session_state.chat_history = []
 if "docs_meta"    not in st.session_state: st.session_state.docs_meta    = []
 if "total_chunks" not in st.session_state: st.session_state.total_chunks = 0
 
-# ─────────────────────────────────────────────
+# 
 #  LLM & prompt
-# ─────────────────────────────────────────────
+# 
 PROMPT_TEMPLATE = """You are a precise, helpful assistant that answers questions strictly based on the provided context.
 If the context does not contain sufficient information to answer, say so clearly.
 
@@ -284,9 +284,9 @@ def get_llm():
 
 llm = get_llm()
 
-# ─────────────────────────────────────────────
+# 
 #  Helpers
-# ─────────────────────────────────────────────
+# 
 def process_pdfs(pdf_docs, chunk_size=512, chunk_overlap=64, top_k=5):
     full_text = ""
     meta = []
@@ -319,16 +319,16 @@ def answer_question(question: str):
     return resp.content, sources
 
 
-# ─────────────────────────────────────────────
+# 
 #  SIDEBAR
-# ─────────────────────────────────────────────
+# 
 with st.sidebar:
     st.markdown(
         """<div style='text-align:center;padding:0 0 1.2rem;'>
             <span style='font-family:Syne,sans-serif;font-size:1.5rem;font-weight:800;
                          background:linear-gradient(135deg,#818CF8,#A78BFA);
                          -webkit-background-clip:text;-webkit-text-fill-color:transparent;'>
-                🧠 DocMind
+                DocMind
             </span>
             <p style='color:#6B7280;font-size:.78rem;margin:.3rem 0 0;'>RAG · Powered by GPT-4o</p>
         </div>""",
@@ -355,7 +355,7 @@ with st.sidebar:
             )
 
     # Settings before process button
-    with st.expander("⚙️ Settings"):
+    with st.expander("Settings"):
         top_k        = st.slider("Chunks retrieved (k)", 1, 10, 5)
         chunk_size   = st.slider("Chunk size (tokens)",  256, 1024, 512, step=64)
         chunk_overlap= st.slider("Chunk overlap",        0,   128,  64,  step=16)
