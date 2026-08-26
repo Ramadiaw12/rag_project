@@ -440,7 +440,7 @@ for col, val, label in zip(
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ── Two-column layout ──
+# Two-column layout 
 chat_col, ctx_col = st.columns([2, 1], gap="large")
 
 with chat_col:
