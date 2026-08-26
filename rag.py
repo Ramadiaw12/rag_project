@@ -286,7 +286,7 @@ llm = get_llm()
 
 # 
 #  Helpers
-# 
+# La fonctions divise le pdf en different chunks ensuite use model embedding pour transformer les chunks en vertors . Les vertor seront ensuite stocké dans ldans la base de donnée vertorielles ChromaDB
 def process_pdfs(pdf_docs, chunk_size=512, chunk_overlap=64, top_k=5):
     full_text = ""
     meta = []
@@ -309,7 +309,7 @@ def process_pdfs(pdf_docs, chunk_size=512, chunk_overlap=64, top_k=5):
     retriever = vector_store.as_retriever(search_kwargs={"k": top_k})
     return retriever, chunks, meta
 
-
+# La fonction prend la question du user ensuite use le Retriever pour recuperer les chunks les plus probables dans la DB vectorielles. Le prompt est construit avec les chunks recuperer et la question du user pour enfin être envoyer au LLM afin de générer la réponse.
 def answer_question(question: str):
     context_docs = st.session_state.retriever.invoke(question)
     context_text = "\n\n".join(d.page_content for d in context_docs)
