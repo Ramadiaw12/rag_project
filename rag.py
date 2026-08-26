@@ -10,7 +10,7 @@ import os
 load_dotenv(override=True)
 
 # 
-#  Page config (must be first Streamlit call)
+#  Page config 
 # 
 st.set_page_config(
     page_title="RAG · DocMind",
@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 # 
-#  Night-mode CSS  (forced, no toggle)
+#  Night-mode CSS  
 # 
 DARK_CSS = """
 <style>
